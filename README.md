@@ -1,7 +1,7 @@
 # Hostel Room Booking
 
-Student name: Add your name here  
-Roll number: Add your roll number here  
+Student name: Divyansh Gupta 
+Roll number: 31  
 Assigned problem statement: P1 — Hostel Room Booking
 
 ## Run the project
