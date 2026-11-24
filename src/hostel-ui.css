@@ -1,0 +1,371 @@
+:root {
+  font-family: "Avenir Next", Avenir, system-ui, sans-serif;
+  color: #162b36;
+  background: #f3f6f5;
+  line-height: 1.5;
+  font-weight: 500;
+  --ink: #162b36;
+  --muted: #50656b;
+  --surface: #fff;
+  --line: #d8e3e1;
+  --accent: #006c61;
+  --accent-dark: #005449;
+  --accent-soft: #e2f3ee;
+  --radius: 16px;
+  --shadow: 0 4px 18px rgb(20 52 47 / 5%);
+  --gutter: clamp(16px, 4vw, 48px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.2em;
+}
+
+:where(a, button, input, select):focus-visible {
+  outline: 3px solid #258e7e;
+  outline-offset: 3px;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 14px max(var(--gutter), calc((100% - 1120px) / 2));
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+nav a {
+  padding: 9px 14px;
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 0.925rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+
+main {
+  width: min(1120px, calc(100% - var(--gutter) * 2));
+  margin: clamp(26px, 5vw, 60px) auto 64px;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+h1 {
+  margin: 0 0 24px;
+  font-size: clamp(2.15rem, 5vw, 3.75rem);
+}
+
+h2 {
+  font-size: 1.35rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+p {
+  margin: 0;
+}
+
+main > div:has(> a[href="/rooms"]) {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  padding: clamp(24px, 6vw, 72px);
+  border-radius: 24px;
+  background: linear-gradient(125deg, #152e39, #104b49);
+  color: #fff;
+}
+
+main > div:has(> a[href="/rooms"]) > h1 {
+  grid-column: 1 / -1;
+  max-width: 12ch;
+  margin: 0 0 14px;
+  font-size: clamp(2.5rem, 7vw, 5.35rem);
+  letter-spacing: -0.055em;
+}
+
+main > div:has(> a[href="/rooms"]) > p {
+  padding: 16px;
+  border: 1px solid rgb(255 255 255 / 24%);
+  border-radius: 12px;
+  background: rgb(255 255 255 / 8%);
+  color: #f0fbf8;
+}
+
+main > div > a[href="/rooms"],
+.action button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+main > div > a[href="/rooms"] {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-top: 10px;
+  background: #d8f5e8;
+  color: #10443e;
+}
+
+main > div > a[href="/rooms"]:hover {
+  background: #bcf0dc;
+}
+
+main > div > a[href="/rooms"]:focus-visible {
+  outline-color: #fff;
+}
+
+main > div:has(> #search) {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+main > div:has(> #search) > h1,
+main > div:has(> #search) > p {
+  grid-column: 1 / -1;
+}
+
+main > div:has(> #search) > h1 {
+  margin-bottom: 4px;
+}
+
+label[for="search"],
+label[for="type"] {
+  grid-row: 2;
+  margin-bottom: -10px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+label[for="search"],
+#search {
+  grid-column: 1 / 3;
+}
+
+label[for="type"],
+#type {
+  grid-column: 3;
+}
+
+#search,
+#type {
+  grid-row: 3;
+  min-width: 0;
+  min-height: 44px;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border: 1px solid #a9bfbb;
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+}
+
+.room-card,
+.room-information,
+main > div:not(:has(> a[href="/rooms"])) > p,
+.not-found {
+  padding: clamp(18px, 3vw, 26px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.room-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+main > div:not(:has(> #search)) > .room-card {
+  max-width: 380px;
+}
+
+.room-card > h3 {
+  margin: 0 0 6px;
+  font-size: 1.35rem;
+}
+
+.room-card > p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.badge {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 3px 9px;
+  border-radius: 5px;
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.badge-available {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+
+.badge-full {
+  background: #f9ece6;
+  color: #88432c;
+}
+
+.room-card > a,
+.text-link {
+  display: inline-block;
+  padding: 6px 0;
+  font-weight: 700;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: auto;
+  min-height: 58px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.action button:hover {
+  background: var(--accent-dark);
+}
+
+.back-link {
+  margin-bottom: 12px;
+}
+
+.room-details-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.room-information h2,
+.room-information h3 {
+  margin: 0 0 14px;
+}
+
+.room-information dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 0 22px;
+}
+
+.room-information dl div {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #f1f6f5;
+}
+
+.room-information dt {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.room-information dd {
+  margin: 2px 0 0;
+  font-weight: 700;
+}
+
+.facility-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.facility-list li {
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.not-found {
+  text-align: center;
+}
+
+@media (max-width: 880px) {
+  main > div:has(> #search) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  label[for="search"],
+  #search {
+    grid-column: 1;
+  }
+
+  label[for="type"],
+  #type {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 560px) {
+  main > div:has(> a[href="/rooms"]),
+  main > div:has(> #search),
+  .room-details-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  main > div:has(> a[href="/rooms"]) {
+    gap: 10px;
+  }
+
+  main > div:has(> a[href="/rooms"]) > p {
+    padding: 10px 14px;
+  }
+
+  main > div:has(> #search) > :is(label, input, select) {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  nav a {
+    padding-inline: 10px;
+  }
+}
