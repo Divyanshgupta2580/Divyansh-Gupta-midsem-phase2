@@ -1,6 +1,6 @@
 # Hostel Room Booking
 
-Student name: Divyansh Gupta 
+Student name: Divyansh Gupta<br>
 Roll number: 31  
 Assigned problem statement: P1 — Hostel Room Booking
 
